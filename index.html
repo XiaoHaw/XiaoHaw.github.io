@@ -1,22 +1,169 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GAMER BASE</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Websites style sheets.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+				
+</head>
 
-<html>
-  <head>
-    <title>saihaw</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1JPM3VQYMB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<body>
+	<div id="container">
+		<div id="header">
+		<img src="images/logo.png" alt="Shop logo">
+			<h2>WELCOME TO GAMER BASE<h2>
+		</div>
+		<br><br>
+		<!--Navigation bar-->
+		<div id= "nav">
+			<table>
+				<tr>
+					<td><a class="selected" href="Home.html">Home Page</a></td>
+					<td><a href="Description.html">Product</a></td>
+					<td><a href="FeedBack.html">FeedBack</a></td>
+				</tr>
+			</table>
+		</div>
+		<br><br>
+		
+		<div id="contentcolumn">
+		<!--details container about buisness and products-->
+			<div class="aboutus">
+				<h2>About Us</h2>
+				<p>Are You Ready To Experince An Overwhelming Generation Of Critically-Acclaimed Games!</p>
+				<p>Pass The Time At Home With Help From Our Store #PLAY AT HOME#</p>
+				<p>!!!--We Are Ready To Provide Services For You--!!!</p>  
+				<p>!!!--Sit Back And Relax With Our Powerful Gaming Consoles--!!!</p>
+				<p>!!!--GAMERS--!!!</p>
+			
+			<div class="productlist">
+			<table id="t01">
+				<tr>
+					<th>Product List</th>			
+					<th>CONSOLE</th>
+					<th>PS4Pro</th>
+					<th>PS4Slim</th>
+					<th>Xbox-X</th>
+					<th>Xbox-S</th>
+				</tr>
+			</table>
+			</div>
+			</div>
+		<!--right side slideshow for products-->
+			<div id="sideiframerightcolumn">
+			<table>
+			<div class="slideshow">
+				<div class="mySlides fade">
+				<div class="numbertext">1 / 6</div>
+				<img src="images/ps4pro.jpg" alt="PS4 console-PROversion" class="images">
+				<div class="text">PS4Pro Console</div>
+				</div>
+				
+				<div class="mySlides fade">
+				<div class="numbertext">2 / 6</div>
+				<img src="images/ps4slim.jpg" alt="PS4 console-SLIMversion" class="images">
+				<div class="text">PS4Slim Console</div>
+				</div>
+				
+				<div class="mySlides fade">
+				<div class="numbertext">3 / 6</div>
+				<img src="images/Ps4-compare.jpg" alt="PS4 Pro/Slim console-compare" class="images">
+				<div class="text">Ps4-compare Console</div>
+				</div>
+				
+				<div class="mySlides fade">
+				<div class="numbertext">4 / 6</div>
+				<img src="images/Xbox-X.jpg" alt="Xbox-X series console" class="images">
+				<div class="text">Xbox-X Console</div>
+				</div>
+				
+				<div class="mySlides fade">
+				<div class="numbertext">5 / 6</div>
+				<img src="images/Xbox-S.jpg" alt="Xbox-S series console" class="images">
+				<div class="text">Xbox-S Console</div>
+				</div>
+				
+				<div class="mySlides fade">
+				<div class="numbertext">6 / 6</div>
+				<img src="images/Xbox-compare.jpg" alt="Xbox X/S console-compare" class="images">
+				<div class="text">Xbox-compare Console</div>
+				</div>	
+			
+			</div>
+			</table>
+		</div>
+		</div>
+		
+					
+		
+<!-- iframesection which could link to another page when user click on the name -->			
+	<div id="bottomiframe">
+	<p>The texts and images that's you click will redirect you to second page for further information.</p>
+		<div id="ps4proProduct">
+		<p><a href="Description.html#ps4proProduct"><img src="images/ps4pro.jpg" alt="PS4 console-PROversion" style="width:250px; height:250px; object-fit:fill;"></a></p>
+		<div class="btmtext"><a href="Description.html#ps4proProduct">PS4Pro</a></div>
+		</div>
+		
+		<div id="ps4slimProduct">
+		<p><a href="Description.html#ps4slimProduct"><img src="images/ps4slim.jpg" alt="PS4 console-SLIMversion" style="width:250px; height:250px; object-fit:fill;"></a></p>
+		<div class="btmtext"><a href="Description.html#ps4slimProduct">PS4Slim</a></div>
+		</div>
+		
+		<div id="xboxxProduct">
+		<p><a href="Description.html#xboxxProduct"><img src="images/Xbox-X.jpg" alt="Xbox-X series console" style="width:250px; height:250px; object-fit:fill;"></a></p>
+		<div class="btmtext"><a href="Description.html#xboxxProduct">Xbox-X</a></div>
+		</div>
+		
+		<div id="xboxsProduct">
+		<p><a href="Description.html#xboxsProduct"><img src="images/Xbox-S.jpg" alt="Xbox-S series console" style="width:250px; height:250px; object-fit:fill;"></a></p>
+		<div class="btmtext"><a href="Description.html#xboxsProduct">Xbox-S</a></div>
+		</div>	
+	</div>
+		
+		
+<!--the footer of the first page-->		
+		<div id="footer">
+			<p>GAMER BASE @ ENJOY GAMING GUYS</p>
+		</div>	
 
-      gtag('config', 'G-1JPM3VQYMB');
-    </script>
+	</div>	
 
-  </head>
-  <body>
-    <h2> Welcome To My Website</h2>
-    <h2> Thanks For Visting This Website</h2>
-  </body>
-  
-</html>  
+<!--Code for getting product that user click in the second page-->	
+<script>
+		window.setInterval(function(){
+		$("#ps4proProduct").click(function(){
+		localStorage.setItem("homePage", "PS4Pro");
+		});
+		$("#ps4slimProduct").click(function(){
+		localStorage.setItem("homePage", "PS4Slim");
+		});
+		$("#xboxxProduct").click(function(){
+		localStorage.setItem("homePage", "Xbox-X");
+		});
+		$("#xboxsProduct").click(function(){
+		localStorage.setItem("homePage", "Xbox-S");
+		});
+		},10);
+</script>	
+
+<!--Code for the right iframe slideshow about the products-->	
+<script>
+var slideIndex = 0;
+	showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
+</script>
+</body>
+</html>
