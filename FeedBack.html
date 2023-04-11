@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>FeedBack</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Websites style sheets.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<br>
+
+<!--Container-->
+<div id="container">
+	<div id="header">
+		<img src="images/logo.png" alt="Shop logo">
+		<h2>LET US KNOW WHAT YOU THINK ABOUT US<h2>
+	</div>
+	<br><br>
+
+<!--Navigation bar-->	
+	<div id= "nav">
+			<table>
+				<tr>
+					<td><a class="selected" href="Home.html">Home Page</a></td>
+					<td><a href="Description.html">Product</a></td>
+					<td><a href="FeedBack.html">FeedBack</a></td>
+				</tr>
+			</table>
+	</div>
+		<br><br>
+
+<!--A small paragraph for user to understand how the feedback work-->
+<div class="Explain">
+<p>Hi there, you could make a recording feedback for 1 minute, just press start button, after you done just simply click stop, and it might take a while to wait the recording data, after the data loaded, you can view and able to download the content to the location you want. Thank You</p>
+</div>
+
+<div id="bigBox">
+	<div id="recordBox">
+	<div class="left">
+		<div id="startButton" class="button1">
+		Start
+		</div>
+	<h2>Preview</h2>
+	<video id="preview" width="280" height="250" autoplay></video>
+	</div>
+	<div class="right">
+		<div id="stopButton" class="button1">
+		Stop
+		</div>
+	<h2>Recording</h2>
+	<video id="recording" width="280" height="250" controls></video>
+	<a id="downloadButton" class="button1">
+		Download
+	</a>
+	</div>
+
+	<div class="bottom">
+	<pre id="log"></pre>
+	</div>
+	</div>
+      
+	<!--right side slideshow for products-->
+	<div id="sideiframerightcolumn1"
+	<table>
+		<div class="slideshow">
+			<div class="mySlides fade">
+			<div class="numbertext">1 / 6</div>
+			<img src="images/ps4pro.jpg" alt="PS4 console-PROversion" style="width:300px; height:300px; object-fit:fill;">
+			<div class="text">PS4Pro Console</div>
+			</div>
+				
+			<div class="mySlides fade">
+			<div class="numbertext">2 / 6</div>
+			<img src="images/ps4slim.jpg" alt="PS4 console-SLIMversion" style="width:300px; height:300px; object-fit:fill;">
+			<div class="text">PS4Slim Console</div>
+			</div>
+				
+			<div class="mySlides fade">
+			<div class="numbertext">3 / 6</div>
+			<img src="images/Ps4-compare.jpg" alt="PS4 Pro/Slim console-compare" style="width:300px; height:300px; object-fit:fill;">
+			<div class="text">Ps4-compare Console</div>
+			</div>
+				
+			<div class="mySlides fade">
+			<div class="numbertext">4 / 6</div>
+			<img src="images/Xbox-X.jpg" alt="Xbox-X series console" style="width:300px; height:300px; object-fit:fill;">
+			<div class="text">Xbox-X Console</div>
+			</div>
+				
+			<div class="mySlides fade">
+			<div class="numbertext">5 / 6</div>
+			<img src="images/Xbox-S.jpg" alt="Xbox-S series console" style="width:300px; height:300px; object-fit:fill;">
+			<div class="text">Xbox-S Console</div>
+			</div>
+				
+			<div class="mySlides fade">
+			<div class="numbertext">6 / 6</div>
+			<img src="images/Xbox-compare.jpg" alt="Xbox X/S console-compare" style="width:300px; height:300px; object-fit:fill;">
+			<div class="text">Xbox-compare Console</div>
+			</div>	
+			
+		</div>
+	</table>
+	</div>
+</div>
+<br>
+
+<!--the footer for the third page-->	  
+<div id="footer"><p>GAMER BASE @ ENJOY GAMING GUYS</p></div>
+
+  
+</div>   
+
+ <!--Script for the recording feedback-->
+<script>
+let preview = document.getElementById("preview");
+let recording = document.getElementById("recording");
+let startButton = document.getElementById("startButton");
+let stopButton = document.getElementById("stopButton");
+let downloadButton = document.getElementById("downloadButton");
+let logElement = document.getElementById("log");
+
+let recordingTimeMS = 60000; // 1minute length recording
+
+<!--log()function is to share information with the user-->
+function log(msg) {
+  logElement.innerHTML += msg + "\n";
+}
+
+<!--wait()function will returns a new Promise once resolves the number of MS have elapsed-->
+function wait(delayInMS) {
+  return new Promise(resolve => setTimeout(resolve, delayInMS));
+}
+
+<!--MediaRecorder to record form and the specified length of record, also can be automatically stops even when the recording time is not fully used-->
+function startRecording(stream, lengthInMS) {
+  let recorder = new MediaRecorder(stream);
+  let data = []; //an empty array, use to hold Blobs of media data provided to our ondataavailable.
+
+  recorder.ondataavailable = event => data.push(event.data); //event handler that pushes the Blob onto the array.
+  recorder.start(); //start the recording.
+  log(recorder.state + " for " + (lengthInMS/1000) + " seconds..."); //output a message to the log with the updated state of the recorder and the number of seconds it will be recording.
+
+  let stopped = new Promise((resolve, reject) => { //When the MediaRecorder onstop event handler is called,
+    recorder.onstop = resolve; 						//and is rejected if it's onerror event handler is called.
+    recorder.onerror = event => reject(event.name);	 //the rejection handler receives as input the name of the error that occurred.
+  });
+
+  let recorded = wait(lengthInMS).then(						//To resolved when the specified number of MS have elapsed.
+    () => recorder.state == "recording" && recorder.stop()	//Upon resolution, it will stops the MediaRecorder if it's recording.
+  );
+
+  return Promise.all([ //When the stopped and recorded have resolved.
+    stopped,		   //the array data is returned by startRecording() function to it's caller.
+    recorded
+  ])
+  .then(() => data);
+}
+
+<!--function to stop the input media-->
+function stop(stream) {
+  stream.getTracks().forEach(track => track.stop());
+}
+
+<!--navigator.mediaDevices.getUserMedia use to request new MediaStream that has video and audio-->
+startButton.addEventListener("click", function() {
+  navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true
+  }).then(stream => {
+    preview.srcObject = stream;
+    downloadButton.href = stream;
+    preview.captureStream = preview.captureStream || preview.mozCaptureStream;
+    return new Promise(resolve => preview.onplaying = resolve);
+  }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
+  .then (recordedChunks => {
+    let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+    recording.src = URL.createObjectURL(recordedBlob); //To create an URL references to the blob. also can be play video from the blob also can be target of the download button's link.
+    downloadButton.href = recording.src;
+    downloadButton.download = "RecordedVideo.webm"; //the download name will be called RecordedVideo.webm
+
+    log("Successfully recorded " + recordedBlob.size + " bytes of " +
+        recordedBlob.type + " media.");
+  })
+  .catch(log); // to catches all Promises output, will call log() function out
+}, false);
+
+<!--click event on stop button using addEventListener(), will calls the stop() function-->
+stopButton.addEventListener("click", function() {
+  stop(preview.srcObject);
+}, false);
+</script>  
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
+</script>
+  
+</body>
+</html>

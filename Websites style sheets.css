@@ -1,0 +1,458 @@
+/*body part css style*/
+body{
+	background-color: #EEE;
+	font-family: fantasy;
+	font-size:26px;
+}
+
+/*page 1 css style container section*/
+#container{
+	background-image: url(images/background.jpg); /*link the backgroundpicture*/
+	background-size: cover; /*make it cover the background area*/
+	background-position: center; /*make it center*/
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+#header{
+	background-color: #66CCFF; /*color*/
+	color: black; /*font color*/
+	text-align: center; /*text content center*/
+	border:20px solid black; /*the border area that cover around the padding*/
+	padding:15px;
+	animation: mymove 5s; /*animation time*/
+	animation-iteration-count: 1; /*animation counting*/
+	
+}
+@keyframes mymove {
+  25% {padding: 50px;} /*padding changing during the animation period for the header*/
+}
+
+
+#contentcolumn{
+	border:10px;
+	padding: 10px;
+	display:flex; /*in a line*/
+	flex-direction:row /*make the content a row*/
+
+	
+}
+
+
+#nav{
+	background-color:#333;
+}
+
+#nav a{
+	display:block;
+	color:#f2f2f2;
+	text-align:center;
+	padding:14px 16px;
+	text-decoration:none;
+	font-size:20px;
+	animation:mymove1 5s;
+	animation-iteration-count:1;
+}
+@keyframes mymove1{ /*padding changing during the animation period */
+	25% {padding-right:50px;}
+}
+
+#nav a:hover{
+	background-color:#ddd;
+	color:black;
+}
+#nav a.selected{
+	background-color:#4CAF50;
+	color:white;
+}
+#nav a.selected:hover{ /*when mouse over to the hover will display another background color and font color*/
+	background-color:white;
+	color:black;
+}
+
+.aboutus{ /*css styling for the introduction of buisness and products*/
+	background-color:aliceblue;
+	float: left;
+	color: black;
+	width: 57%;
+	border: 30px solid cornflowerblue;
+	padding:20px;
+	text-align:center;
+	opacity:0.8; /*make it a bit transparency to the background*/
+	font-size:25px;
+	font-family:Copperplate;
+	font-weight:bolder;
+	animation: movement 3s;
+	animation-iteration-count:3;
+}
+@keyframes movement{ /*padding changing during the animation period*/
+	25% {padding-right:50px;}
+}
+
+
+.caption1{
+	border: 5px solid black;
+	border-collapse: collapse;
+	color: cornflowerblue;
+	text-align:center;
+	justify-content:center;
+}
+
+/*table1 css styling*/
+#t01{
+	background-color:wheat;
+	display:flex;
+	justify-content: space-around;
+	animation:mymove2 5s;
+	animation-iteration-count: infinite;
+}
+@keyframes mymove2{ /*padding changing during the animation period*/
+	25% {padding-left:50px;}
+	
+}
+
+/*table1 table header css styling*/
+#t01 th{
+	border: 5px solid black;
+	border-collapse: collapse;
+	color: cornflowerblue;
+	text-align:center;
+	justify-content:center;
+	text-decoration:none;
+}
+
+/*Will show changes if mouse move to the table header*/
+#t01 th:hover{
+	color:white;
+	background-color:black;
+}	
+
+/*the small section to show the slideshow of products*/
+#sideiframerightcolumn{
+	padding: 40px;
+    float: right;
+    width: 28%;
+    border: 3px solid black;
+    background-color: royalblue;
+}
+
+/*css styling for the text of slideshow*/
+.text {
+	border:3px solid black;
+	background-color:black;
+	text-align:center;
+	color: aqua;
+	font-size: 24px;
+	position: relative:
+	
+}
+
+/*css styling for the text of slideshow*/
+.text:hover{
+	color:white;
+	background-color:#4CAF50;
+}
+
+/*css styling for the text of slideshow*/
+.numbertext { 
+	color: aqua;
+	background-color:black;
+	text-align: center;
+	font-size: 24px;
+	position: relative;
+	border: 3px solid black;
+}
+
+.numbertext:hover{
+	color:white;
+	background-color:#4CAF50;
+}
+
+/*css styling for the slideshow images*/
+.images {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:362px;
+	height:400px;
+}
+
+/*animation for the fade during the change of slideshow image*/
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*bottom section where the images and text link to the description page when user click*/
+#bottomiframe{
+	display: flex;
+    background-color: cadetblue;
+    opacity: 0.9;
+    position: static;
+    text-align: center;
+    border:3px solid black;
+    justify-content: space-around;
+    padding: 20px;
+	font-family:Papyrus;
+	font-size:20px;
+	text-decoration:solid;
+	font-weight:bolder;
+}
+
+#bottomiframe a{
+	text-decoration:solid;
+	color:white;
+	font-weight:bolder;
+}
+
+/*css styling for the small paragraph in the bottom section*/
+#bottomiframe p{
+	font-size:24px;
+	text-align:center;
+	font-weight:bolder;
+}
+
+/*css styling for the small paragraph in the bottom section*/
+#bottomiframe a:hover{
+	background-color:green;
+	color:black;
+}
+
+/*css styling for the small paragraph in the bottom section*/
+.btmtext{
+	border:3px solid black;
+}
+
+/*css styling for the small paragraph in the bottom section*/
+.btmtext:hover{
+	background-color:green;
+	color:black;
+}
+
+
+/*css styling for the footer of webpages*/
+#footer{
+	clear:both;
+	padding: 15px;
+	background-color: #999999;
+	color: black;
+	text-align: center;
+	font-size: xx-large;
+}
+
+/*css styling for the button video in Product description*/
+.button3{
+	color: green;
+	background-color: wheat;
+	text-decoration: none;
+	font-size: 26px;
+	text-align: center;
+	cursor:pointer;
+}
+
+/*product1 styling*/
+#ps4proProduct{
+	background-image:url("images/Gamer.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/*product2 styling*/
+#ps4slimProduct{
+	background-image:url("images/Gamer.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/*product3 styling*/
+#xboxxProduct{
+	background-image:url("images/Gamer.jpg");
+	background-repeat: no-repeat; 
+	background-size: 100% 100%;
+}
+
+/*product4 styling*/
+#xboxsProduct{
+	background-image:url("images/Gamer.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/*video styling for the product 1*/
+#v1{
+	border:10px solid #002bff;
+}
+
+/*video styling for the product 2*/
+#v2{
+	border:10px solid #002bff;
+}
+
+/*video styling for the product 3*/
+#v3{
+	border:10px solid #002bff;
+}
+
+/*video styling for the product 4*/
+#v4{
+	border:10px solid #002bff;
+}
+
+/*the styling for the caption*/
+.capstyle{
+	color:white;
+	font-size:40px;
+	border:3px solid wheat;
+	background-color:black;
+	padding:10px;
+}
+
+/*product table css styling*/
+.textprod{
+	background-color:wheat;
+	display:grid;
+	justify-content: space-around; /*auto control the space around the content*/
+}
+
+/*product table css styling*/
+.textprod th,td{
+	border: 5px solid black;
+	border-collapse: collapse;
+	color: black;
+	text-align:center;
+	justify-content:center;
+	text-decoration:none;
+}
+
+/*product 1 styling*/
+#p1{
+	text-align:center;
+	font-size:30px;
+	color:black;
+	border:5px solid black;
+}
+
+/*product 2 styling*/
+#p2{
+	text-align:center;
+	font-size:30px;
+	color:black;
+	border:5px solid black;
+}
+
+/*product 3 styling*/
+#p3{
+	text-align:center;
+	font-size:30px;
+	color:black;
+	border:5px solid black;
+	
+}
+
+/*product 4 styling*/
+#p4{
+	text-align:center;
+	font-size:30px;
+	color:black;
+	border:5px solid black;
+}
+
+/*css styling for the paragraph in third page*/
+.Explain{
+	text-align:center;
+	border:4px solid black;
+	background-color:wheat;
+	padding:10px;
+	font-size:24px;
+	margin:10px;
+}
+
+/*the container of the recordBox and sideiframerightcolumn1*/
+#bigBox{
+	display:flex; /*in order to show the content in a single row a line*/
+}
+
+/*styling for the recordBox content*/
+#recordBox{
+	display: inline-block;
+    float: left;
+    background-color: azure;
+    border: 4px solid black;
+    padding: 73px 137px;
+	margin-left:20px;
+	margin-right:100px;
+}
+
+
+/*the border around the video in preview section*/
+#preview{
+	border:5px solid cadetblue;
+}
+
+/*the border around the video in recording section*/
+#recording{
+	border:3px solid cadetblue;
+}
+
+/*css styling for the right section slideshow in the feedback page*/
+#sideiframerightcolumn1{
+	padding: 110px 117px;
+	float: right;
+	width: 19%;
+	border: dashed;
+	background-color: royalblue;
+	text-align: center;
+}
+
+/*css styling for the button in feedback page*/
+.button1 {
+  cursor: pointer; /*the mouse cursor will change to pointer when the user point to the button*/
+  display: block;
+  width: 250px;
+  border: 5px solid black;
+  font-size: 26px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: green;
+  background-color: wheat;
+  text-decoration: none;
+}
+
+/*css styling for the h2 in third page*/
+h2 {
+  margin-bottom: 4px;
+}
+
+/*css styling for the preview box in the recordBox*/
+.left {
+  margin-right: 50px;
+  float: left;
+  width: 200px;
+  padding: 0px;
+}
+
+/*css styling for the recording box in the recordBox*/
+.right {
+  margin-left: 50px;
+  float: left;
+  width: 200px;
+  padding: 0px;
+}
+
+/*css styling for the log in the recordBox*/
+.bottom {
+  clear: both;
+  padding-top: 10px;
+}
