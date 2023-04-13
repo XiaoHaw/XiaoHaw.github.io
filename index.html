@@ -19,12 +19,21 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>SaiHaw</title>
+  
+  <style>
+      .show {
+          display: block;
+      }
+  </style>
 </head>
 <body>
   <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Personal CV</a>
+      <button id="menunav" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -238,9 +247,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-vp/8n1TYmqJbfDh/6ONC79dkZoijM2Xa1fJi/bIK+wT1lS47lUyqu6U+tCM6xuV7" crossorigin="anonymous"></script>
   
   <script>
-      var myNavbar = document.getElementById('navbarNav');
-      var navbar = new bootstrap.Collapse(myNavbar);
+      var myNavbar = document.getElementById('menunav');
+      var navbar = document.getElementById('navbarNav');
+     
+      myNavbar.addEventListener("click", function(){
+        navbar.classList.toggle("show");
+      });
   </script>
 </body>
 </html>
-
